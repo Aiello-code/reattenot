@@ -66,3 +66,13 @@ def index():
 
 if __name__ == "__main__":
     app.run(debug=True)
+@app.route("/")
+def index():
+    mention_count = count_trump_mentions()
+    update_mention_history(mention_count)
+    highest_mention, lowest_mention = get_top_and_lowest_mentions()
+    
+    return render_template("index.html", 
+                           mention_count=mention_count,
+                           highest_mention=highest_mention, 
+                           lowest_mention=lowest_mention)
