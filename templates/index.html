@@ -31,24 +31,27 @@
         <img src="https://upload.wikimedia.org/wikipedia/commons/5/56/Donald_Trump_official_portrait.jpg" 
              class="trump-img" alt="Trump Image">
         
-        <h2 class="mt-5">Top Mentions in the Last 24 Hours</h2>
+        <h2 class="mt-5">Mentions in the Last 24 Hours</h2>
         <table class="table table-striped mt-3">
             <thead>
                 <tr>
-                    <th>Count</th>
+                    <th>Highest Mentions</th>
+                    <th>Timestamp</th>
+                    <th>Lowest Mentions</th>
                     <th>Timestamp</th>
                 </tr>
             </thead>
             <tbody>
-                {% for count, timestamp in top_mentions %}
                 <tr>
-                    <td>{{ count }}</td>
-                    <td>{{ timestamp }}</td>
+                    <td>{{ highest_mention[0] if highest_mention else 'N/A' }}</td>
+                    <td>{{ highest_mention[1] if highest_mention else 'N/A' }}</td>
+                    <td>{{ lowest_mention[0] if lowest_mention else 'N/A' }}</td>
+                    <td>{{ lowest_mention[1] if lowest_mention else 'N/A' }}</td>
                 </tr>
-                {% endfor %}
             </tbody>
         </table>
     </div>
 
 </body>
 </html>
+
